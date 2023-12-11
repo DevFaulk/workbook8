@@ -1,0 +1,2 @@
+### Inserts/Creates one new user
+GET http://localhost:3000/users/7
