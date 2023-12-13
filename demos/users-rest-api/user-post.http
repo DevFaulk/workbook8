@@ -1,2 +1,26 @@
 ### Inserts/Creates one new user
-GET http://localhost:3000/users/7
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+  "name": "Teddy Faulk",
+  "username": "Ted",
+  "email": "Ted@april.biz",
+  "address": {
+    "street": "Kulas Ted",
+    "suite": "Apt. Ted",
+    "city": "Tedborough",
+    "zipcode": "92998-3Ted",
+    "geo": {
+      "lat": "-37.3Ted",
+      "lng": "81.1Ted"
+    }
+  },
+  "phone": "1-770-736-8031 x56442",
+  "website": "Teddegard.org",
+  "company": {
+    "name": "Tedaguera-Crona",
+    "catchPhrase": "Multi-layered client-server neural-net",
+    "bs": "harness real-time e-markets"
+  }
+}
