@@ -5,6 +5,7 @@ const usersTableBody = document.getElementById("usersTableBody");
 function loadUsersTable(users) {
   for (const user of users) {
     let row = usersTableBody.insertRow();
+    row.id = user.id;
 
     let cell1 = row.insertCell();
     cell1.innerText = user.name;
@@ -14,7 +15,24 @@ function loadUsersTable(users) {
 
     let cell3 = row.insertCell();
     cell3.innerText = user.username;
+
+    let cell5 = row.insertCell();
+    deleteButton(user, cell5);
   }
+}
+
+function deleteButton(user, cell5) {
+  let button = document.createElement("button");
+  button.innerText = "Delete User";
+  button.setAttribute("onclick", `deleteUser(${user.id})`);
+  cell5.appendChild(button);
+}
+
+async function deleteUser(row) {
+  await fetch(`http://localhost:3000/users/${row}`, {
+    method: "DELETE",
+  });
+  location.reload();
 }
 
 function initialize() {
